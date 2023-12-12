@@ -9,17 +9,18 @@ import SwiftUI
 
 struct ColorCircle: View {
     let color: Color
+    let isActive: Bool
     
     var body: some View {
         Circle()
             .frame(width: 150, height: 150)
             .foregroundColor(color)
-            .opacity(0.3)
+            .opacity(isActive ? 1 : 0.2)
             .overlay(Circle().stroke(Color.white, lineWidth:  3))
             .shadow(color: .black, radius: 5)
     }
 }
 
 #Preview {
-    ColorCircle(color: .red)
+    ColorCircle(color: .red, isActive: true)
 }
